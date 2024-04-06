@@ -30,9 +30,8 @@ class _LoginPageState extends State<LoginPage> {
       password: password.text
       );
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+      Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => HomePage()),
       );
       print('Successfully logged in: ${user.user!.uid} ');
 
