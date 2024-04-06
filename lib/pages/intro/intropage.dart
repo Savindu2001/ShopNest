@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopnest/pages/auth/login.dart';
+import 'package:shopnest/pages/auth/wrapper.dart';
 
-class IntroPage1 extends StatelessWidget {
-  const IntroPage1({super.key});
+class IntroPage extends StatelessWidget {
+  const IntroPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class IntroPage1 extends StatelessWidget {
           Spacer(),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> LoginPage()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> Wrapper()));
             },
             child: Container(
               padding: EdgeInsets.only(top: 10.0,bottom: 10.0,left: 25.0,right: 25.0),

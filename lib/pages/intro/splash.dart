@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shopnest/pages/intro/intropage.dart';
+import 'package:shopnest/pages/intro/introwrapper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(seconds: 3),(){
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const IntroPage1())
+        MaterialPageRoute(builder: (_) => const IntroWrapper())
       );
     });
   }
