@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
     final user = FirebaseAuth.instance.currentUser;
 
-    signOut()async{
+    Future signOut()async{
       await FirebaseAuth.instance.signOut(
         
       );
@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('${user!.email}'),
-          SizedBox(height: 30,),
+              SizedBox(height: 30,),
               ElevatedButton(
                 onPressed: (()=>signOut()), 
                 child: Text('Logout'))

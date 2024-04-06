@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopnest/pages/auth/forgot.dart';
 import 'package:shopnest/pages/auth/register.dart';
 import 'package:shopnest/pages/store/home.dart';
 import 'package:shopnest/widget/dividerText.dart';
@@ -30,7 +31,8 @@ class _LoginPageState extends State<LoginPage> {
       password: password.text
       );
 
-      Navigator.of(context).pushReplacement(
+      Navigator.pushReplacement(
+        context,
       MaterialPageRoute(builder: (context) => HomePage()),
       );
       print('Successfully logged in: ${user.user!.uid} ');
@@ -119,7 +121,9 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 5.0),
               // forget Password
               TextButton(
-                onPressed: (){}, 
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgotPassword()));
+                }, 
                 child: Text('Forgot Password?',
                 style: GoogleFonts.poppins(
                   fontWeight:FontWeight.bold,
