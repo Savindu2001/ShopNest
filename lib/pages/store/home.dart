@@ -10,7 +10,9 @@ class HomePage extends StatelessWidget {
     final user = FirebaseAuth.instance.currentUser;
 
     signOut()async{
-      await FirebaseAuth.instance.signOut();
+      await FirebaseAuth.instance.signOut(
+        
+      );
     }
 
     return Scaffold(
