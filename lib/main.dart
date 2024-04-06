@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shopnest/pages/intro/splash.dart';
+import 'package:shopnest/intro/splash.dart';
 
 Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

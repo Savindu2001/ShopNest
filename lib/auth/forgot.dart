@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopnest/pages/auth/login.dart';
+import 'package:shopnest/auth/login.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});

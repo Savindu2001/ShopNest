@@ -7,10 +7,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopnest/pages/auth/forgot.dart';
-import 'package:shopnest/pages/auth/register.dart';
-import 'package:shopnest/pages/store/home.dart';
-import 'package:shopnest/widget/dividerText.dart';
+import 'package:shopnest/auth/forgot.dart';
+import 'package:shopnest/auth/register.dart';
+import 'package:shopnest/shop/pages/home.dart';
+import 'package:shopnest/globalwidget/dividerText.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

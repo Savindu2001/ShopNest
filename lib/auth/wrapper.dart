@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shopnest/pages/intro/intropage.dart';
-import 'package:shopnest/pages/store/home.dart';
+import 'package:shopnest/auth/login.dart';
+import 'package:shopnest/shop/pages/home.dart';
 
-class IntroWrapper extends StatefulWidget {
-  const IntroWrapper({super.key});
+class Wrapper extends StatefulWidget {
+  const Wrapper({super.key});
 
   @override
-  State<IntroWrapper> createState() => _IntroWrapperState();
+  State<Wrapper> createState() => _WrapperState();
 }
 
-class _IntroWrapperState extends State<IntroWrapper> {
+class _WrapperState extends State<Wrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class _IntroWrapperState extends State<IntroWrapper> {
           if(snapshot.hasData){
             return HomePage();
           }else{
-            return IntroPage();
+            return LoginPage();
           }
         }
         )

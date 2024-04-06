@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shopnest/pages/intro/introwrapper.dart';
+import 'package:shopnest/intro/introwrapper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
