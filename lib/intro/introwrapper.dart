@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopnest/intro/intropage.dart';
-import 'package:shopnest/shop/pages/home.dart';
+import 'package:shopnest/shop/pages/main_screen.dart';
 
 class IntroWrapper extends StatefulWidget {
   const IntroWrapper({super.key});
@@ -18,7 +18,7 @@ class _IntroWrapperState extends State<IntroWrapper> {
         stream: FirebaseAuth.instance.authStateChanges(), 
         builder: (context,snapshot){
           if(snapshot.hasData){
-            return HomePage();
+            return MainBottom();
           }else{
             return IntroPage();
           }

@@ -8,11 +8,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopnest/model/products.dart';
-import 'package:shopnest/shop/homeWidget/categories.dart';
-import 'package:shopnest/shop/homeWidget/homeSlider.dart';
-import 'package:shopnest/shop/homeWidget/homeappbar.dart';
-import 'package:shopnest/shop/homeWidget/homesearchbar.dart';
-import 'package:shopnest/shop/homeWidget/product_card.dart';
+import 'package:shopnest/shop/storeWidget/categories.dart';
+import 'package:shopnest/shop/storeWidget/homeSlider.dart';
+import 'package:shopnest/shop/storeWidget/homeappbar.dart';
+import 'package:shopnest/shop/storeWidget/homesearchbar.dart';
+import 'package:shopnest/shop/storeWidget/product_card.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -34,9 +34,14 @@ class _HomePageState extends State<HomePage> {
         
       );
     }
+  int currentTab =0;
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+
+      
+
       // backgroundColor: Colors.grey,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -61,8 +66,9 @@ class _HomePageState extends State<HomePage> {
                   }, 
                   currentSlider: currentSlider,
                   imagePaths: [
-                  'assets/slider/slide1.jpg',
+                  'assets/slider/slide.jpg',
                   'assets/slider/slide2.jpg',
+                  'assets/slider/slide1.jpg',
                   //add two more banners
                   ]
                   ),
@@ -119,6 +125,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      
     );
   }
 }

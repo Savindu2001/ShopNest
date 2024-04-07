@@ -30,7 +30,7 @@ class HomeAppBar extends StatelessWidget {
             padding: const EdgeInsets.all(15),
           ), 
           iconSize: 35,
-          icon: const Icon(Ionicons.cart_outline,),
+          icon: const Icon(Ionicons.notifications_outline,),
           ),
       ],
     );

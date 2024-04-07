@@ -15,13 +15,13 @@ class HomeSlider extends StatelessWidget {
                     width: double.infinity,
                     child: PageView.builder(
                       onPageChanged: onChange,
-                      itemCount: 2,
+                      itemCount: 3,
                       itemBuilder: (context, index){
                       return Container(
                         height: 200,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
                             fit: BoxFit.fill,
                             image: AssetImage(imagePaths[index]),
