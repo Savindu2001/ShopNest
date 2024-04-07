@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:shopnest/shop/pages/home.dart';
+import 'package:shopnest/shop/pages/store.dart';
+import 'package:shopnest/user/user_profile.dart';
 
 class MainBottom extends StatefulWidget {
   const MainBottom({super.key});
@@ -14,11 +16,11 @@ class _MainBottomState extends State<MainBottom> {
 
 
   int currentTab =0;
-  List screens = const[
+  List screens = [
     HomePage(),
+    ShopNestStore(),
     Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    UserProfilePage(),
 
   ];
   

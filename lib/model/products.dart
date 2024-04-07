@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Product{
   final String itemName;
@@ -85,6 +86,30 @@ final List<Product> products = [
       Colors.green,
     ], 
     description: 'short is very unique', 
+    image: 'assets/categories/short.png', 
+    price: 1200, 
+    rate: 4.0,
+    ),
+    Product(
+    itemName: 'xyz', 
+    category: 'Short', 
+    colors: [
+      Colors.blueAccent,
+      Colors.green,
+    ], 
+    description: 'test is very unique', 
+    image: 'assets/categories/short.png', 
+    price: 1200, 
+    rate: 4.0,
+    ),
+    Product(
+    itemName: 'abc', 
+    category: 'Short', 
+    colors: [
+      Colors.blueAccent,
+      Colors.green,
+    ], 
+    description: 'hello is very unique', 
     image: 'assets/categories/short.png', 
     price: 1200, 
     rate: 4.0,

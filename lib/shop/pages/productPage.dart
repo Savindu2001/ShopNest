@@ -129,9 +129,9 @@ class _ProductPageState extends State<ProductPage> {
                               margin: const EdgeInsets.only(right: 15),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: currentColor==index? Colors.white : widget.product.colors[index],
+                                // color: currentColor==index? Colors.white : widget.product.colors[index],
                                 border: currentColor == index? Border.all(
-                                  color: widget.product.colors[index],
+                                  // color: widget.product.colors[index],
                                 ) : Border.all(),
                               ),
                               child: Container(
@@ -140,7 +140,7 @@ class _ProductPageState extends State<ProductPage> {
                                 margin: const EdgeInsets.all(2),
                                 decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: widget.product.colors[index],
+                                //color: widget.product.colors[index],
                               ),
                               ),
                             ),

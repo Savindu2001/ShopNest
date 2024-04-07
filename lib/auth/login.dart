@@ -11,6 +11,7 @@ import 'package:shopnest/auth/forgot.dart';
 import 'package:shopnest/auth/register.dart';
 import 'package:shopnest/shop/pages/home.dart';
 import 'package:shopnest/globalwidget/dividerText.dart';
+import 'package:shopnest/shop/pages/main_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -33,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.pushReplacement(
         context,
-      MaterialPageRoute(builder: (context) => HomePage()),
+      MaterialPageRoute(builder: (context) => MainBottom()),
       );
       print('Successfully logged in: ${user.user!.uid} ');
 

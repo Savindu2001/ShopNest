@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopnest/auth/login.dart';
-import 'package:shopnest/shop/pages/home.dart';
+import 'package:shopnest/shop/pages/main_screen.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({super.key});
@@ -18,7 +18,7 @@ class _WrapperState extends State<Wrapper> {
         stream: FirebaseAuth.instance.authStateChanges(), 
         builder: (context,snapshot){
           if(snapshot.hasData){
-            return HomePage();
+            return MainBottom();
           }else{
             return LoginPage();
           }
