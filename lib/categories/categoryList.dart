@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shopnest/categories/categoryCardProducts.dart';
 import 'package:shopnest/model/category.dart';
 
-class ShopNestCategories extends StatelessWidget {
-  const ShopNestCategories({
+class CategoryProductList extends StatelessWidget {
+  const CategoryProductList({
     super.key,
   });
 
@@ -20,10 +19,12 @@ class ShopNestCategories extends StatelessWidget {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> CategoryCardProducts(categoryName: categories[index].title)));
             },
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 10,),
                 Container(
-                  height: 60,
-                  width: 60,
+                  height: 50,
+                  width: 50,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(image: AssetImage(
@@ -32,11 +33,9 @@ class ShopNestCategories extends StatelessWidget {
                     ))
                   ),
                 ),
-                SizedBox(height: 5,),
-                Text(categories[index].title,
-                style: GoogleFonts.poppins(
-                  fontWeight:FontWeight.bold,
-                )),
+
+                SizedBox(height: 10,),
+                
                 
               ],
             ),

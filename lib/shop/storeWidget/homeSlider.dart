@@ -23,7 +23,7 @@ class HomeSlider extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            fit: BoxFit.fill,
+                            fit: BoxFit.contain,
                             image: AssetImage(imagePaths[index]),
                           ),
                         ),

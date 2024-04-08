@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:shopnest/model/products.dart';
+import 'package:shopnest/model/productModel.dart';
 import 'package:shopnest/shop/pages/productPage.dart';
 
 class ProductCard extends StatelessWidget {
@@ -14,7 +14,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: ((context) => ProductPage(product: product))));
+        Navigator.of(context).push(MaterialPageRoute(builder: ((context) => ProductPage(product: product ))));
       },
       child: Stack(
         children:[
@@ -26,6 +26,7 @@ class ProductCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
+            
             children: [
               Image.asset(
                 product.image,
@@ -48,20 +49,9 @@ class ProductCard extends StatelessWidget {
                     fontSize:16,
                     fontWeight:FontWeight.bold,
                   ),),
-                  Row(
-                    children: List.generate(
-                      product.colors.length, 
-                      (cindex) => Container(
-                        height: 20,
-                        width: 20,
-                        margin: const EdgeInsets.only(right: 3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: product.colors[cindex],
-                        ),
-                      )
-                      ),
-                  )
+
+                  Icon(Ionicons.eye),
+                  
                 ],
               ),
             ],

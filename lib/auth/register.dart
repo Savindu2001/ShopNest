@@ -254,11 +254,11 @@ void submitForm() async{
           );
         //store user other details on firestore
 
-        await FirebaseFirestore.instance.collection('customers').doc(user.user!.uid).set({
-            'customer name':name,
-            'customer email':email,
-            'customer phone':mobile,
-            'customer city':city,
+        await FirebaseFirestore.instance.collection('Users').doc(user.user!.uid).set({
+            'name':name,
+            'email':email,
+            'phone':mobile,
+            'city':city,
 
         });
 

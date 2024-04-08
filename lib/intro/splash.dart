@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shopnest/intro/introwrapper.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -37,11 +38,11 @@ class _SplashScreenState extends State<SplashScreen>
         decoration: const BoxDecoration(
           color: Colors.black,
         ),
-        child: const Column(
+        child:  Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('ShopNest',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               color: Colors.white,
               fontSize: 35.0,
               fontWeight: FontWeight.bold

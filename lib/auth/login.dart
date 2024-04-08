@@ -9,7 +9,6 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopnest/auth/forgot.dart';
 import 'package:shopnest/auth/register.dart';
-import 'package:shopnest/shop/pages/home.dart';
 import 'package:shopnest/globalwidget/dividerText.dart';
 import 'package:shopnest/shop/pages/main_screen.dart';
 

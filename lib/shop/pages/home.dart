@@ -7,12 +7,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopnest/model/products.dart';
 import 'package:shopnest/shop/storeWidget/categories.dart';
 import 'package:shopnest/shop/storeWidget/homeSlider.dart';
 import 'package:shopnest/shop/storeWidget/homeappbar.dart';
 import 'package:shopnest/shop/storeWidget/homesearchbar.dart';
-import 'package:shopnest/shop/storeWidget/product_card.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -57,6 +55,7 @@ class _HomePageState extends State<HomePage> {
                 //Home searchbar
                 HomeSearchBar(),
                 const SizedBox(height: 20),
+                
                 //Home banner
                 HomeSlider(
                   onChange: (value){
@@ -105,20 +104,20 @@ class _HomePageState extends State<HomePage> {
           
                 SizedBox(height: 10),
 
-                GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20
-                    ), 
-                    itemCount: 4,
-                    itemBuilder: (context,index){
-                      final product = products[index];
-                    return ProductCard(product: product);
-                  },
-                  ),
+                // GridView.builder(
+                //   physics: const NeverScrollableScrollPhysics(),
+                //   shrinkWrap: true,
+                //   gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                //     crossAxisCount: 2,
+                //     crossAxisSpacing: 20,
+                //     mainAxisSpacing: 20
+                //     ), 
+                //     itemCount: 6,
+                //     itemBuilder: (context,index){
+                //       final product = products[index];
+                //     return ProductCard(product: product);
+                //   },
+                //   ),
           
               ],
             ),

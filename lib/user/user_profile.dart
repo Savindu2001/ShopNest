@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:shopnest/widgets/loader.dart';
 
 class UserProfilePage extends StatefulWidget {
   const UserProfilePage({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
     User? user = FirebaseAuth.instance.currentUser;
     String uid = user!.uid;
 
-    return FirebaseFirestore.instance.collection('customers').doc(user.uid).get();
+    return FirebaseFirestore.instance.collection('Users').doc(uid).get();
   }
 
   Future _signOut()async{
@@ -52,11 +53,10 @@ class _UserProfilePageState extends State<UserProfilePage> {
           future: userInfo,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator(
-                color: Colors.black,
-              ));
+              return ShopNestLoader();
 
             } else if (snapshot.hasError) {
+              print(snapshot.error);
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
               Map<String, dynamic>? userData = snapshot.data!.data() as Map<String, dynamic>?;
@@ -74,7 +74,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 
                     // User name
                     Text(
-                      '${userData!['customer name']}',
+                      '${userData!['name']}',
                       style: GoogleFonts.poppins(
                         fontSize: 25,
                         fontWeight:FontWeight.bold,
@@ -83,7 +83,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                     ),
                     // User email
                     Text(
-                      '${userData!['customer email']}',
+                      '${userData['email']}',
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight:FontWeight.bold,
