@@ -118,6 +118,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                                   ),),
                             trailing: Icon(Ionicons.eye_outline,color: Colors.white),
                             onTap: () {
+                              
                             },
                           ),
                           

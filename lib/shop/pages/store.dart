@@ -39,7 +39,7 @@ class _ShopNestStoreState extends State<ShopNestStore> {
       String itemName = data['itemName'].toString();
       String description = data['description'].toString();
       String image = data['image'].toString();
-      double price = (data['price'] ?? 0).toDouble();
+      double price = (data['price'] ?? 00).toDouble();
       String colors = data['color'];
       String category = data['category'] ?? ''; 
       double reviewRate = (data['reviewRate'] ?? 0).toDouble();
@@ -91,7 +91,7 @@ class _ShopNestStoreState extends State<ShopNestStore> {
                   itemBuilder: (context, index) {
                     final productItem = product[index];
                     return Padding(
-                      padding: const EdgeInsets.only(left: 5,right: 2),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: ProductListCard(product: productItem,),
                     );
                   },
