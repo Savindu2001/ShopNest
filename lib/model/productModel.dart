@@ -6,6 +6,7 @@ class Product {
   final String description;
   final String image;
   final double price;
+   bool isFavorite;
   final String colors;
   final String category;
   final double reviewRate;
@@ -16,6 +17,7 @@ class Product {
     required this.description,
     required this.image,
     required this.price,
+    required this.isFavorite,
     required this.colors,
     required this.category,
     required this.reviewRate,
@@ -31,6 +33,7 @@ class Product {
       colors: data['color'],
       category: data['category'] ?? '',
       reviewRate: (data['reviewRate'] ?? 0).toDouble(),
+      isFavorite: false,
     );
   }
 }

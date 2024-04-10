@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:provider/provider.dart';
 import 'package:shopnest/model/productModel.dart';
-import 'package:shopnest/shop/storeWidget/addToCart.dart';
+import 'package:shopnest/shop/cart/cartItemModel.dart';
+import 'package:shopnest/shop/cart/models/cartProvider.dart';
+import 'package:shopnest/shop/favourite/favouriteProvider.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
@@ -16,15 +19,15 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  // int currentImage = 0;
-  // int currentColor = 0;
+ 
   int currentNumber = 1;
+  Cart cart = Cart();
   
   
   @override
   Widget build(BuildContext context) {
 
-   print(" hello ${widget.product.colors}"); // Verify the color name
+   
 
 
     return Scaffold(
@@ -53,32 +56,60 @@ class _ProductPageState extends State<ProductPage> {
     
             SizedBox(width: 5,),
     
+            //Favourite Page
+
             IconButton(
-            onPressed: (){}, 
-            style: IconButton.styleFrom(
-              backgroundColor: Colors.transparent,
-              padding: const EdgeInsets.all(15)
-            ),
-            icon: Icon(Ionicons.heart_outline,size: 30,)
-            ),
+                onPressed: () {
+                 
+                  setState(() {
+                    widget.product.isFavorite = !widget.product.isFavorite;
+                  });
+                  
+                  if (widget.product.isFavorite) {
+                    Provider.of<FavoriteProvider>(context, listen: false)
+                        .addFavorite(widget.product);
+                  } else {
+                    Provider.of<FavoriteProvider>(context, listen: false)
+                        .removeFavorite(widget.product);
+                  }
+                },
+                style: IconButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  padding: const EdgeInsets.all(15),
+                ),
+                icon: Icon(
+                  widget.product.isFavorite ? Ionicons.heart : Ionicons.heart_outline,
+                  size: 30,
+                  color: widget.product.isFavorite ? Colors.red : Colors.black,
+                ),
+              ),
+
         ],
       ),
 
       //add to card float button
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(10),
-        child: AddToCardFloat(currentNumber: currentNumber, onAdd: (){
-          setState(() {
-            currentNumber++;
-          });
-        }, 
-        onRemove: (){
-          setState(() {
-            currentNumber--;
-          });
-        },),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          padding: const EdgeInsets.all(10),
+          child: AddToCardFloat(
+            cart: cart,
+            currentNumber: currentNumber,
+            onAdd: () {
+              setState(() {
+                currentNumber++;
+              });
+            },
+            onRemove: () {
+              setState(() {
+                if (currentNumber > 1) {
+                  currentNumber--;
+                }
+              });
+            },
+            product: widget.product, 
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
 
 
       // backgroundColor: Colors.amber,
@@ -119,7 +150,7 @@ class _ProductPageState extends State<ProductPage> {
                 SizedBox(height: 20,),
                 Container(
                   width: double.infinity,
-                  height: 800,
+                  height: 500,
                   decoration:const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20),
@@ -250,6 +281,8 @@ class _ProductPageState extends State<ProductPage> {
                       fontSize: 14,
                       fontWeight:FontWeight.bold,
                     ),),
+
+                    
                         
                    
                         
@@ -264,3 +297,99 @@ class _ProductPageState extends State<ProductPage> {
   }
 }
 
+// add to cart option
+class AddToCardFloat extends StatelessWidget {
+  final Function() onAdd;
+  final Function() onRemove;
+  final int currentNumber;
+  final Cart cart;
+  final Product product;
+
+  const AddToCardFloat({
+    Key? key,
+    required this.currentNumber,
+    required this.onAdd,
+    required this.onRemove,
+    required this.cart,
+    required this.product,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final CartProvider cartProvider = Provider.of<CartProvider>(context);
+    return Container(
+      height: 80,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      alignment: Alignment.center,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            height: 40,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: onRemove,
+                  iconSize: 18,
+                  icon: Icon(Ionicons.remove),
+                ),
+                SizedBox(width: 5,),
+                Text(currentNumber.toString()),
+                SizedBox(width: 5,),
+                IconButton(
+                  onPressed: onAdd,
+                  iconSize: 18,
+                  icon: Icon(Ionicons.add),
+                ),
+              ],
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+        
+              cartProvider.addItem(product, currentNumber);
+            
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Product added to cart'),
+                  duration: Duration(milliseconds: 50),
+                  ),
+                
+              );
+            },
+            child: Container(
+              height: 50,
+              width: 150,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                'Add to Cart',
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          
+
+        ],
+      ),
+    );
+  }
+}

@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shopnest/model/productModel.dart';
-import 'package:shopnest/shop/storeWidget/homesearchbar.dart';
 import 'package:shopnest/shop/storeWidget/productStoreCard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shopnest/widgets/loader.dart';
+
+
+
 
 class ShopNestStore extends StatefulWidget {
   const ShopNestStore({Key? key});
@@ -15,6 +19,9 @@ class ShopNestStore extends StatefulWidget {
 
 class _ShopNestStoreState extends State<ShopNestStore> {
   late Future<List<Product>> _productsFuture;
+  
+  
+
 
   @override
   void initState() {
@@ -53,6 +60,7 @@ class _ShopNestStoreState extends State<ShopNestStore> {
         colors: colors,
         category: category,
         reviewRate: reviewRate,
+        isFavorite: false,
       );
     }).toList();
     return products;
@@ -62,11 +70,18 @@ class _ShopNestStoreState extends State<ShopNestStore> {
   }
 }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: HomeSearchBar(),
+       leading: null,
+        title: Text('ShopNest Exclusive',
+        style: GoogleFonts.poppins(
+          fontWeight:FontWeight.bold,
+          fontSize:30,
+        ),),
       ),
       body: SafeArea(
         child: SingleChildScrollView(

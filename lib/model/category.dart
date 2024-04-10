@@ -13,4 +13,7 @@ final List<Category> categories = [
   Category(title: 'Shorts', image: "assets/categories/short.png"),
   Category(title: 'Trousers', image: "assets/categories/trouser.png"),
   Category(title: 'Caps', image: "assets/categories/cap.png"),
+  Category(title: 'Bottle', image: "assets/categories/bottle.png"),
+  Category(title: 'BackPack', image: "assets/categories/backpack.png"),
+  Category(title: 'Belt', image: "assets/categories/belt.png"),
 ];

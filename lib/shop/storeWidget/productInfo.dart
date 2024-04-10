@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:shopnest/model/products.dart';
+import 'package:shopnest/model/productModel.dart';
 
 class ProductInfo extends StatelessWidget {
   final Product product;
@@ -46,7 +46,7 @@ class ProductInfo extends StatelessWidget {
                             child: Row(
                               children: [
                                 Icon(Ionicons.star, size: 15,color: Colors.black,),
-                                Text("${product.rate}")
+                                Text("${product.reviewRate}")
                               ],
                             ),
                           ),

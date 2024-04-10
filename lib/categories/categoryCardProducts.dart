@@ -9,8 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shopnest/widgets/loader.dart';
 
 class CategoryCardProducts extends StatefulWidget {
-  final String categoryName; // Accepts the category name as a parameter
-
+  final String categoryName;
   const CategoryCardProducts({Key? key, required this.categoryName}) : super(key: key);
 
   @override
@@ -30,7 +29,7 @@ class _CategoryCardProductsState extends State<CategoryCardProducts> {
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
           .collection('products')
-          .where('category', isEqualTo: widget.categoryName) // Filter by category name
+          .where('category', isEqualTo: widget.categoryName) 
           .get();
       List<Product> products = querySnapshot.docs.map((doc) {
         Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
@@ -56,6 +55,7 @@ class _CategoryCardProductsState extends State<CategoryCardProducts> {
           colors: colors,
           category: category,
           reviewRate: reviewRate,
+          isFavorite: true,
         );
       }).toList();
       return products;

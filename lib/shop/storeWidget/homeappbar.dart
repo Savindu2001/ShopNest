@@ -4,6 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:shopnest/shop/contact.dart';
+import 'package:shopnest/shop/orders/history.dart';
+import 'package:shopnest/user/profile.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -33,14 +36,14 @@ class HomeAppBar extends StatelessWidget {
         //right Icon
         IconButton(
           onPressed: (){
-            //Navigator.push(context, MaterialPageRoute(builder: ((context) => )));
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => ProfilePage() )));
           },
           style: IconButton.styleFrom(
             backgroundColor: Colors.white,
             padding: const EdgeInsets.all(15),
           ), 
           iconSize: 35,
-          icon: const Icon(Ionicons.notifications_outline,),
+          icon: const Icon(Ionicons.person_circle_outline,),
           ),
       ],
     );
@@ -93,7 +96,7 @@ class HomeAppBar extends StatelessWidget {
                           color:Colors.white
                         ),),
                   onTap: () {
-                   
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfilePage() ));
                   },
                 ),
 
@@ -106,7 +109,7 @@ class HomeAppBar extends StatelessWidget {
                           color:Colors.white
                         ),),
                   onTap: () {
-                   
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderHistoryPage() ));
                   },
                 ),
 
@@ -119,7 +122,7 @@ class HomeAppBar extends StatelessWidget {
                           color:Colors.white
                         ),),
                   onTap: () {
-                   
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> ContactNow() ));
                   },
                 ),
 
@@ -132,7 +135,7 @@ class HomeAppBar extends StatelessWidget {
                           fontSize: 20,
                           color:Colors.white
                         ),),
-                  onTap: (){},
+                  onTap: _signOut,
                 ),
 
                 SizedBox(height: 20.0),

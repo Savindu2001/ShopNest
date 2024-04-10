@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:shopnest/shop/cart/cartPage.dart';
 import 'package:shopnest/shop/pages/home.dart';
 import 'package:shopnest/shop/pages/store.dart';
 import 'package:shopnest/user/user_profile.dart';
@@ -19,7 +20,7 @@ class _MainBottomState extends State<MainBottom> {
   List screens = [
     HomePage(),
     ShopNestStore(),
-    Scaffold(),
+    CartPage(),
     UserProfilePage(),
 
   ];
